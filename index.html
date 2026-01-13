@@ -5,25 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Long Boi - NYC City Rhythm Project</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin:0; padding:0; box-sizing:border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             height: 100vh;
             overflow-x: hidden;
             position: relative;
-            background: #0F2027; /* fallback mavi */
+            background: #0F2027;
+            cursor: none; /* normal cursor gizlensin */
         }
 
         /* Navbar */
         .navbar {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             width: 100%;
             background: linear-gradient(90deg, #0F2027, #203A43, #2C5364);
             padding: 15px 30px;
@@ -34,210 +29,126 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-        }
+        .logo { font-size: 24px; font-weight:bold; color:white; }
 
-        .nav-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
+        .nav-buttons { display:flex; gap:10px; }
         .nav-btn {
             background: rgba(255,255,255,0.2);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
+            color:white;
+            border:none;
+            padding:10px 20px;
+            border-radius:8px;
+            font-size:16px;
+            font-weight:500;
+            cursor:pointer;
+            transition:all 0.3s;
         }
-
-        .nav-btn:hover {
-            background: rgba(255,255,255,0.3);
-        }
-
-        .nav-btn.active {
-            background: rgba(255,255,255,0.4);
-            font-weight: 600;
-        }
+        .nav-btn:hover { background: rgba(255,255,255,0.3); }
+        .nav-btn.active { background: rgba(255,255,255,0.4); font-weight:600; }
 
         /* Background */
         .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&h=1080&fit=crop');
-            background-size: cover;
-            background-position: center;
+            position:absolute;
+            top:0; left:0;
+            width:100%; height:100%;
+            background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&h=1080&fit=crop');
+            background-size:cover;
+            background-position:center;
             filter: brightness(0.7);
-            z-index: 0;
-        }
-
-        /* Home Page */
-        .main-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            text-align: center;
-        }
-
-        .title {
-            color: white;
-            font-size: 56px;
-            font-weight: bold;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-        }
-
-        .home-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .home-buttons button {
-            padding: 12px 25px;
-            font-size: 16px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            transition: 0.3s;
-        }
-
-        .home-buttons button:hover {
-            background: rgba(255,255,255,0.35);
-        }
-
-        /* Developed By */
-        .developed-by {
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            color: white;
-            font-size: 14px;
-            z-index: 10;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-        }
-
-        .developed-by strong {
-            color: rgba(255,255,255,0.9);
-            margin-right: 5px;
-        }
-
-        .team-names span {
-            margin: 0 5px;
-        }
-
-        .team-names span:not(:last-child)::after {
-            content: ", ";
+            z-index:0;
         }
 
         /* Pages */
-        .page {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow-y: auto;
-            z-index: 2;
-            background: rgba(0,0,0,0.3);
+        .page { display:none; position:absolute; top:0; left:0; width:100%; height:100%; overflow-y:auto; z-index:2; background: rgba(0,0,0,0.3); }
+        .page.active { display:block; }
+
+        /* Home Page */
+        .main-container {
+            position:absolute; top:50%; left:50%;
+            transform: translate(-50%, -50%);
+            z-index:1;
+            text-align:center;
+        }
+        .title { color:white; font-size:56px; font-weight:bold; margin-bottom:30px; text-shadow:2px 2px 8px rgba(0,0,0,0.5); }
+        .home-buttons { display:flex; justify-content:center; gap:20px; }
+        .home-buttons button {
+            padding:12px 25px;
+            font-size:16px;
+            border-radius:8px;
+            border:none;
+            cursor:pointer;
+            background: rgba(255,255,255,0.2);
+            color:white;
+            transition:0.3s;
+        }
+        .home-buttons button:hover { background: rgba(255,255,255,0.35); }
+
+        /* Developed By */
+        .developed-by {
+            position: fixed; bottom:20px; right:30px;
+            color:white; font-size:14px; z-index:10;
+            text-shadow:1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .developed-by strong { color: rgba(255,255,255,0.9); margin-right:5px; }
+        .team-names span { margin:0 5px; }
+        .team-names span:not(:last-child)::after { content:", "; }
+
+        /* Duck */
+        .duck {
+            position: fixed;
+            width: 80px; height: 80px;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease-out;
+            transform-origin: center center;
+        }
+        .duck-body {
+            width:100%; height:100%;
+            background: #ffd700;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+            box-shadow:0 4px 8px rgba(0,0,0,0.2);
+        }
+        .duck-head {
+            width:60px; height:60px;
+            background:#ffd700;
+            border-radius:50%;
+            position:absolute; top:-20px; left:10px;
+            box-shadow:0 2px 4px rgba(0,0,0,0.2);
+        }
+        .duck-beak {
+            width:20px; height:15px;
+            background:#ff8c00;
+            position:absolute; top:25px; left:50px;
+            border-radius:0 50% 50% 0;
+            transform:rotate(-10deg);
+        }
+        .duck-eye {
+            width:10px; height:10px;
+            background:#000;
+            border-radius:50%;
+            position:absolute; top:15px; left:35px;
+        }
+        .duck-eye::after {
+            content:'';
+            width:4px; height:4px;
+            background:#fff;
+            border-radius:50%;
+            position:absolute; top:2px; left:2px;
         }
 
-        .page.active {
-            display: block;
-        }
-
-        .page-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            padding-top: 100px;
-        }
-
-        .page-header {
-            background: rgba(20,20,20,0.8);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .page-header h1 {
-            color: white;
-            font-size: 32px;
-        }
-
-        /* Box */
-        .box {
-            background: rgba(20,20,20,0.85);
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            color: #fff;
-        }
-
-        .box h2 {
-            color: #4A90E2;
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-
-        .box-content p, .box-content li {
-            font-size: 15px;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.85);
-        }
-
-        .box-content ul {
-            padding-left: 20px;
-            margin-top: 10px;
-        }
-
-        /* Visualizations scrollable */
-        .visual-box {
-            background: rgba(20,20,20,0.85);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .visual-box h3 {
-            color: #4A90E2;
-            margin-bottom: 15px;
-        }
-
-        .placeholder {
-            background: rgba(255,255,255,0.05);
-            border: 2px dashed rgba(255,255,255,0.2);
-            border-radius: 8px;
-            padding: 40px;
-            text-align: center;
-            color: rgba(255,255,255,0.5);
-            min-height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 15px;
-        }
-
-        .placeholder-text {
-            font-style: italic;
-        }
+        /* Page content */
+        .page-content { max-width:1000px; margin:0 auto; padding:40px 20px; padding-top:100px; }
+        .page-header { background: rgba(20,20,20,0.8); padding:20px; border-radius:10px; margin-bottom:30px; text-align:center; }
+        .page-header h1 { color:white; font-size:32px; }
+        .box { background: rgba(20,20,20,0.85); padding:25px; border-radius:12px; margin-bottom:30px; box-shadow:0 5px 20px rgba(0,0,0,0.3); color:#fff; }
+        .box h2 { color:#4A90E2; font-size:22px; margin-bottom:15px; }
+        .box-content p, .box-content li { font-size:15px; line-height:1.6; color: rgba(255,255,255,0.85); }
+        .box-content ul { padding-left:20px; margin-top:10px; }
+        .visual-box { background: rgba(20,20,20,0.85); border-radius:12px; padding:20px; margin-bottom:20px; box-shadow:0 5px 15px rgba(0,0,0,0.3); }
+        .visual-box h3 { color:#4A90E2; margin-bottom:15px; }
+        .placeholder { background: rgba(255,255,255,0.05); border:2px dashed rgba(255,255,255,0.2); border-radius:8px; padding:40px; text-align:center; color: rgba(255,255,255,0.5); min-height:150px; display:flex; align-items:center; justify-content:center; margin-top:15px; }
+        .placeholder-text { font-style:italic; }
     </style>
 </head>
 <body>
@@ -263,6 +174,17 @@
                 <button onclick="showPage('visualizations')">Visualizations</button>
             </div>
         </div>
+
+        <!-- Duck element -->
+        <div class="duck" id="duck">
+            <div class="duck-body">
+                <div class="duck-head">
+                    <div class="duck-eye"></div>
+                </div>
+                <div class="duck-beak"></div>
+            </div>
+        </div>
+
         <div class="developed-by">
             <strong>Developed by:</strong>
             <span class="team-names">
@@ -278,17 +200,13 @@
     <!-- Project Details Page -->
     <div id="project-details" class="page">
         <div class="page-content">
-            <div class="page-header">
-                <h1>Project Details</h1>
-            </div>
-
+            <div class="page-header"><h1>Project Details</h1></div>
             <div class="box">
                 <h2>Project Motivation</h2>
                 <div class="box-content">
                     <p>This project aims to uncover the hidden daily rhythms of NYC, analyzing urban mobility, activity zones, and environmental factors to understand the city's "breathing pattern".</p>
                 </div>
             </div>
-
             <div class="box">
                 <h2>Research Questions</h2>
                 <div class="box-content">
@@ -300,54 +218,27 @@
                     </ul>
                 </div>
             </div>
-
-            <div class="developed-by">
-                <strong>Developed by:</strong>
-                <span class="team-names">
-                    <span>Meryem Öncü</span>
-                    <span>Ahmed Efe Koluaçık</span>
-                    <span>Beyza Altınköprü</span>
-                    <span>Yağmur Kondakcı</span>
-                    <span>Öykü Akdoğan</span>
-                </span>
-            </div>
         </div>
     </div>
 
     <!-- Visualizations Page -->
     <div id="visualizations" class="page">
         <div class="page-content">
-            <div class="page-header">
-                <h1>Visualizations</h1>
-            </div>
-
+            <div class="page-header"><h1>Visualizations</h1></div>
             <div class="visual-box">
                 <h3>Q1 - City Breathing Rhythm</h3>
                 <div class="placeholder"><span class="placeholder-text">Graph placeholder</span></div>
                 <div class="placeholder"><span class="placeholder-text">Explanation placeholder</span></div>
             </div>
-
             <div class="visual-box">
                 <h3>Q2 - Secondary Factors Analysis</h3>
                 <div class="placeholder"><span class="placeholder-text">Graph placeholder</span></div>
                 <div class="placeholder"><span class="placeholder-text">Explanation placeholder</span></div>
             </div>
-
             <div class="visual-box">
                 <h3>Q3 - Hot & Cold Zones</h3>
                 <div class="placeholder"><span class="placeholder-text">Graph placeholder</span></div>
                 <div class="placeholder"><span class="placeholder-text">Explanation placeholder</span></div>
-            </div>
-
-            <div class="developed-by">
-                <strong>Developed by:</strong>
-                <span class="team-names">
-                    <span>Meryem Öncü</span>
-                    <span>Ahmed Efe Koluaçık</span>
-                    <span>Beyza Altınköprü</span>
-                    <span>Yağmur Kondakcı</span>
-                    <span>Öykü Akdoğan</span>
-                </span>
             </div>
         </div>
     </div>
@@ -362,6 +253,43 @@
             const navButtons = document.querySelectorAll('.nav-btn');
             if(navMap[pageId]!==undefined) navButtons[navMap[pageId]].classList.add('active');
         }
+
+        // Duck animation
+        function initDuck() {
+            const duck = document.getElementById('duck');
+            if (!duck) return;
+
+            let mouseX = window.innerWidth/2;
+            let mouseY = window.innerHeight/2;
+            let duckX = mouseX;
+            let duckY = mouseY;
+
+            document.addEventListener('mousemove', e => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            function animateDuck() {
+                if (document.getElementById('home').classList.contains('active')) {
+                    const dx = mouseX - duckX;
+                    const dy = mouseY - duckY;
+
+                    duckX += dx*0.1;
+                    duckY += dy*0.1;
+
+                    duck.style.left = duckX - 40 + 'px';
+                    duck.style.top = duckY - 40 + 'px';
+
+                    const angle = Math.atan2(dy, dx)*(180/Math.PI);
+                    duck.style.transform = `rotate(${angle}deg)`;
+                }
+                requestAnimationFrame(animateDuck);
+            }
+            animateDuck();
+        }
+
+        window.addEventListener('load', initDuck);
     </script>
 </body>
 </html>
+
