@@ -174,7 +174,6 @@
 </style>
 </head>
 <body>
-    <!-- Navbar -->
     <div class="navbar">
         <div class="logo">
             <div class="logo-container">
@@ -189,10 +188,8 @@
         </div>
     </div>
 
-    <!-- Background -->
     <div class="background"></div>
 
-    <!-- Home Page -->
     <div id="home" class="page active">
         <div class="main-container">
             <h1 class="title">New York City's Life Rhythms</h1>
@@ -202,38 +199,29 @@
             </div>
         </div>
 
-        <!-- Long Boi SVG Duck -->
         <div id="duck" class="duck-container">
             <svg width="50.4" height="100.8" viewBox="0 0 70 140">
-                <!-- Shadow -->
                 <ellipse cx="35" cy="135" rx="20" ry="5" fill="rgba(0,0,0,0.3)"/>
                 
-                <!-- Legs -->
                 <rect class="leg-left" x="28" y="110" width="5" height="20" fill="#ff8c00"/>
                 <rect class="leg-right" x="37" y="110" width="5" height="20" fill="#ff8c00"/>
                 
-                <!-- Body -->
                 <ellipse cx="35" cy="95" rx="22" ry="18" fill="#8B7355" stroke="#6B5345" stroke-width="1.5"/>
                 <ellipse cx="35" cy="75" rx="20" ry="15" fill="#F5E6D3" stroke="#E5D6C3" stroke-width="1"/>
                 <ellipse cx="35" cy="60" rx="16" ry="12" fill="#FAFAFA"/>
                 
-                <!-- Neck -->
                 <rect x="31" y="25" width="8" height="38" fill="#8B7355" stroke="#6B5345" stroke-width="1"/>
                 <rect x="32" y="26" width="6" height="36" fill="#A0826D"/>
                 
-                <!-- Head -->
                 <ellipse cx="35" cy="20" r="12" fill="#0D5F3E" stroke="#0A4A30" stroke-width="1"/>
                 <circle cx="35" cy="18" r="11" fill="#1A7A4E"/>
                 <ellipse cx="35" cy="16" rx="10" ry="8" fill="#267F56"/>
                 
-                <!-- Neck ring -->
                 <ellipse cx="35" cy="30" rx="9" ry="3" fill="#FFFFFF"/>
                 
-                <!-- Eye -->
                 <circle cx="40" cy="17" r="2.5" fill="#000"/>
                 <circle cx="41" cy="16.5" r="0.8" fill="#FFF"/>
                 
-                <!-- Bill -->
                 <ellipse cx="45" cy="18" rx="8" ry="3" fill="#FFD700" stroke="#FFA500" stroke-width="1"/>
                 <line x1="45" y1="18" x2="50" y2="18" stroke="#8B6914" stroke-width="0.5"/>
             </svg>
@@ -251,14 +239,13 @@
         </div>
     </div>
 
-    <!-- Project Details Page -->
     <div id="project-details" class="page">
         <div class="page-content">
             <div class="page-header"><h1>Project Details</h1></div>
             <div class="box">
                 <h2>Project Motivation</h2>
                 <div class="box-content">
-                    <p>This project examines New York City as a dynamic system with a recurring daily “breathing rhythm.” Using time-series data from electricity consumption, air quality measurements, traffic volume intensity, subway usage, social events, Citi Bike activity, and 311 noise complaints, we analyze how different urban indicators rise and fall throughout the day. The project focuses on identifying shared temporal patterns across these datasets to understand the city’s core daily activity cycle. In addition, we explore how secondary factors such as noise levels, social events, and traffic congestion align with or deviate from this primary rhythm. Finally, by comparing temporal fluctuations across datasets, we investigate whether “hot” and “cold” periods of urban activity emerge over time, revealing moments of intensified or reduced urban engagement rather than fixed spatial zones. Together, these analyses provide insight into how urban systems interact and evolve over time.  </div>              
+                    <p>This project examines New York City as a dynamic system with a recurring daily "breathing rhythm." Using time-series data from electricity consumption, air quality measurements, traffic volume intensity, subway usage, social events, Citi Bike activity, and 311 noise complaints, we analyze how different urban indicators rise and fall throughout the day. The project focuses on identifying shared temporal patterns across these datasets to understand the city's core daily activity cycle. In addition, we explore how secondary factors such as noise levels, social events, and traffic congestion align with or deviate from this primary rhythm. Finally, by comparing temporal fluctuations across datasets, we investigate whether "hot" and "cold" periods of urban activity emerge over time, revealing moments of intensified or reduced urban engagement rather than fixed spatial zones. Together, these analyses provide insight into how urban systems interact and evolve over time.  </div>              
             </div>
             <div class="box">
                 <h2>Research Questions</h2>
@@ -273,24 +260,43 @@
         </div>
     </div>
 
-    <!-- Visualizations Page -->
     <div id="visualizations" class="page">
         <div class="page-content">
             <div class="page-header"><h1>Visualizations</h1></div>
             <div class="visual-box">
                 <h3>City Breathing Rhythm</h3>
-                <p style="margin-top: 15px; color: rgba(255,255,255,0.85); line-height: 1.6; font-size: 15px; text-align: justify;">This interactive visualization reveals secondary urban signals that shape New York City's daily and seasonal rhythm. When examined over time, noise complaint intensity and social event frequency tend to increase during periods of heightened urban activity, although this overlap is not always exact. A notable spike in noise complaints observed on September 15 highlights a temporary deviation from the city's underlying activity cycle, while subtle yet persistent temporal patterns can be detected in the background of both noise and event distributions. The air quality distribution further shows a clear increase during the summer months, underscoring how seasonal environmental conditions influence the urban experience. Taken together, these observations suggest that the city's "breathing" is shaped not only by mobility or energy use, but also by social and environmental factors and the deviations they introduce, positioning this visualization as a central element in understanding the city's multilayered dynamics.</p>
-                <div class="placeholder"><span class="placeholder-text">Graph placeholder</span></div>
+                
+                <img src="urban_trends_jan_jun_2024.png" alt="Urban Trends Normalized Graph" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); margin-bottom: 20px;">
+                
+                <p style="margin-top: 15px; color: rgba(255,255,255,0.85); line-height: 1.6; font-size: 15px; text-align: justify;">We normalized Citibike rides, traffic volume, and electricity consumption to a 0-to-1 scale to compare how New York's pulse changes from winter to summer. Citibike acts as a perfect thermometer—rising linearly with temperature. Traffic, however, spiked erratically in March before crashing in April, revealing chaos rather than seasonal patterns. Electricity remained our stable baseline, jumping in February for heating and plateauing until June's air conditioning demand. New York operates on three disconnected rhythms: predictable bike commuting, volatile traffic, and steady energy consumption.</p>
+                
+                <img src="daily_mobility_pulse_jan_jun_2024.png" alt="Daily Mobility Pulse Graph" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); margin-top: 20px; margin-bottom: 20px;">
+                
+                <p style="margin-top: 15px; color: rgba(255,255,255,0.85); line-height: 1.6; font-size: 15px; text-align: justify;">Zooming into daily patterns, a critical question emerged: does this seasonal pulse hold at the day to day level?
+The daily view shows Citibike data as a literal heartbeat spiking and dropping with weekends and weather, growing stronger from January to June. Traffic, in contrast, shows massive irregular spikes like late March, proving it's driven by unpredictable events rather than daily patterns. Takeaway: micromobility is stable and plannable; traffic is fundamentally chaotic.</p>
             </div>
             <div class="visual-box">
                 <h3>Secondary Factors Analysis</h3>
-                <div class="placeholder"><span class="placeholder-text">Graph placeholder</span></div>
+                
+                <img src="nyc_urban_rhythm_events_traffic_noise_2024.png" alt="NYC Urban Rhythm Analysis" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); margin-bottom: 20px;">
+                
                 <p style="margin-top: 15px; color: rgba(255,255,255,0.85); line-height: 1.6; font-size: 15px; text-align: justify;">This visualization compares normalized traffic volume, noise complaints, and social event activity to capture New York City's broader urban rhythm across 2024. From January through July, both event frequency and noise complaints show a steady upward trend, reflecting the intensification of social activity and outdoor presence as the year progresses. Traffic volume follows a similar pattern, with noticeable increases particularly in April and June, suggesting periods of heightened mobility that align with seasonal transitions and event-driven movement. A visible gap during July and August highlights data scarcity rather than a true decline, underscoring the importance of contextualizing absences within the dataset. After October, all three indicators exhibit a general downturn, marking a collective slowdown in urban intensity as colder months approach. Together, these synchronized rises, plateaus, and declines illustrate how movement, social activity, and urban disturbance co-evolve over time, reinforcing the notion of a shared underlying city rhythm shaped by both behavioral and seasonal forces.</p>
             </div>
             <div class="visual-box">
                 <h3>Hot & Cold Zones</h3>
-                <div class="placeholder"><span class="placeholder-text">Graph placeholder</span></div>
-                <div class="placeholder"><span class="placeholder-text">Explanation placeholder</span></div>
+                
+                <div style="width: 100%; height: 600px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.3); margin-bottom: 20px;">
+                    <iframe src="hot_cold_zones.html" title="Hot & Cold Zones Interactive Graph" style="width: 100%; height: 100%; border: none;"></iframe>
+                </div>
+                
+                <p style="margin-top: 15px; color: rgba(255,255,255,0.85); line-height: 1.6; font-size: 15px; text-align: justify;">This interactive visualization reveals secondary urban signals that shape New York City's daily and seasonal rhythm. When examined over time, noise complaint intensity and social event frequency tend to increase during periods of heightened urban activity, although this overlap is not always exact. A notable spike in noise complaints observed on September 15 highlights a temporary deviation from the city's underlying activity cycle, while subtle yet persistent temporal patterns can be detected in the background of both noise and event distributions. The air quality distribution further shows a clear increase during the summer months, underscoring how seasonal environmental conditions influence the urban experience. Taken together, these observations suggest that the city's "breathing" is shaped not only by mobility or energy use, but also by social and environmental factors and the deviations they introduce, positioning this visualization as a central element in understanding the city's multilayered dynamics.</p>
+            </div>
+            <div class="visual-box">
+                <h3>Regression</h3>
+                
+                <img src="image_3e5296.png" alt="Regression Analysis: Traffic vs Noise" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); margin-bottom: 20px;">
+                
+                <p style="margin-top: 15px; color: rgba(255,255,255,0.85); line-height: 1.6; font-size: 15px; text-align: justify;">If traffic is this chaotic, what's its real impact on urban life? We tested the obvious assumption: more cars = more noise complaints.The regression revealed a weak link: R² = 0.042, meaning traffic explains just 4% of noise complaints. Despite the slight upward trend, data points scatter wildly low-traffic days still saw massive complaint spikes. The verdict: construction, parties, and neighbor disputes drive noise complaints far more than traffic does. Reducing cars alone won't solve the noise problem.</p>
             </div>
         </div>
     </div>
